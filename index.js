@@ -223,19 +223,7 @@ bot.on("message", async message => {
                     })
                   }
 	   
-	         if (message.content.startsWith("fuck"){
-		   message.channel.send("U have said a swear word do u like to delete it?")
-	           const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
-                   console.log(collector)
-                   collector.on('collect', message => {
-                      if (message.content == "yes") {
-                          message.channel.send("ok")
-			  message.delete();
-		      } else if (message.content == "no") {
-                          message.channel.send("NO IT WILL BE DELETED U STUPID FAGGOT")
-			  message.delete();
-		      })
-		   }
+	         
 		
 
               
