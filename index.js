@@ -62,7 +62,9 @@ bot.on("message", async message => {
 
       
   
-
+  if (message.content.startsWith("DemonGilly")) {
+    message.author.send(`NUUU dont ping muu`)
+  }
 
 
   if (message.content.startsWith("hey")) {
