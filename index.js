@@ -26,15 +26,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-fs.readdir("./events/", (err, files) => {
-	if (err) console.log(err);
-	files.forEach(file => {
-		let eventFunc = require(`./events/${file}`);
-		let eventName = file.split(".")[0];
-		bot.on(eventName, (...args) => eventFunc.run(bot, ...args));
-	});
-});
-
 	
 
 
