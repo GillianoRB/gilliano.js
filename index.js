@@ -360,7 +360,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     if(!rUser) return message.channel.send("Couldn't find user");
     let reason = args.join (" ").slice(22);
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No Can Do Pal!");
-    if(rUser.hasPermission("ADMINISTRATOR")) return message.channel.send("That Person Cant Be Kicked!");
+    if(rUser.hasPermission("ADMINISTRATOR")) return message.channel.send("That Person Cant Be Report Server Owner/ Higher then my role!");
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Reports")
