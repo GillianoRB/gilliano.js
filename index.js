@@ -399,7 +399,6 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("?slap (user)", "clap")
     .addField("?kiss (user)", "kisses user")
     .addField("?hug (user)", "hugs user")
-    .addField("?weather (country or city)", "weather")
     .addField("?coinflip", "flips coin")
     .addField("?google (something)", "searches at google")
     .addField("?ratewaifu (user)", "rates user ");
