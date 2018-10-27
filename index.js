@@ -285,6 +285,21 @@ try {
   message.channel.send(`Congrats to <@${rMember.id}>, they have been given the role ${gRole.name}. We tried to DM them, but their DMs are locked.`)
 }
 };
+	
+if(cmd === `${prefix}createrole`){
+    if (!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
+if (args[0] == "help") {
+  message.reply("Usage: !createrole <role>");
+  return;
+}
+let rMember = message.guild.members.get(args[0]);
+let role = args.join(" ").slice(22);
+if (!role) return message.reply("Specify a role!");
+
+try {
+  await message.channel.send(`The Role Has Been Created`)
+}
+};
 
 
   if(cmd === `${prefix}removerole`){
