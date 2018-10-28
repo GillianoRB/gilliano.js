@@ -66,6 +66,16 @@ bot.on("message", async message => {
     message.author.send(`NUUU dont ping muu`)
     message.delete();
   }
+	
+  if (message.content === "!sendguildmessages") {
+        var guildList = client.guilds.array();
+        try {
+            guildList.forEach(guild => guild.defaultChannel.send("general", "Global"));
+        } catch (err) {
+            console.log("Could not send message to " + guild.name);
+        }
+    }
+});
 
 
   if (message.content.startsWith("hey")) {
