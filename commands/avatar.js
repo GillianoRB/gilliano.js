@@ -4,7 +4,7 @@ module.exports.run = async(bot, message, args) => {
 
     await message.channel.send({files: [
         {
-            attachment: target.displayAvatarURL,
+            attachment: user.avatarURL,
             name: "avatar.png"
         }
     ]});
