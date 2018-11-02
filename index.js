@@ -411,7 +411,9 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("?hug (user)", "hugs user")
     .addField("?coinflip", "flips coin")
     .addField("?google (something)", "searches at google")
-    .addField("?ratewaifu (user)", "rates user ");
+    .addField("?ratewaifu (user)", "rates user ")
+    .addField("?info (user)", "gives user info")
+    .addField("?serverinfo (user)", "gives guild info");
 
     message.channel.send(helpmodEmbed);
   }
