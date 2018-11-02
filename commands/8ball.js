@@ -1,43 +1,46 @@
-const Discord = require('discord.js')
+const Discord = require("discord.js");
+const botconfig = require("../botconfig.json");
 
-exports.run = (client, message, args, tools) => {
-if(!args[0]) {
-  const errEmbed = new Discord.RichEmbed()
-  .setColor(0xFF0000)
-  .setAuthor('ERROR')
-  .setTitle(':exclamation: Usage: **ks!8ball (question)**');
-  message.channel.send({embed: errEmbed})
-  return;
+function randomIntInc(low, high) {
+    return Math.floor(Math.random() * (high - low + 1) + low);
 }
-var sayings = ["It is certain",
-										"It is decidedly so",
-										"Without a doubt",
-										"Yes, definitely",
-										"You may rely on it",
-										"As I see it, yes",
-										"Most likely",
-										"Outlook good",
-										"Yes",
-										"Signs point to yes",
-										"Reply hazy try again",
-										"Ask again later",
-										"Better not tell you now",
-										"Cannot predict now",
-										"Concentrate and ask again",
-										"Don't count on it",
-										"My reply is no",
-										"My sources say no",
-										"Outlook not so good",
-										"Very doubtful"];
+module.exports.run = async (client, message, args) => {
+    var rnd = randomIntInc(1, 5);
+    if (rnd === 1) {
+        const embed1 = new Discord.RichEmbed()
+            .setDescription(':8ball: 8ball')
+            .setColor('RANDOM')
+            .addField(args.join(" "), 'No')
+        message.channel.send(embed1);
+    } else if (rnd === 2) {
+        const embed2 = new Discord.RichEmbed()
+            .setDescription(':8ball: 8ball')
+            .setColor('RANDOM')
+            .addField(args.join(" "), 'Not Probable')
+        message.channel.send(embed2);
+    } else if (rnd === 3) {
+        const embed3 = new Discord.RichEmbed()
+            .setDescription(':8ball: 8ball')
+            .setColor('RANDOM')
+            .addField(args.join(" "), 'Maybe')
+        message.channel.send(embed3);
+    } else if (rnd === 4) {
+        const embed3 = new Discord.RichEmbed()
+            .setDescription(':8ball: 8ball')
+            .setColor('RANDOM')
+            .addField(args.join(" "), 'Probably')
+        message.channel.send(embed3);
+    } else if (rnd === 5) {
+        const embed3 = new Discord.RichEmbed()
+            .setDescription(':8ball: 8ball')
+            .setColor('RANDOM')
+            .addField(args.join(" "), 'Yes')
+        message.channel.send(embed3);
+    }
 
-			var result = Math.floor((Math.random() * sayings.length) + 0);
-      const ballEmb = new Discord.RichEmbed()
-      .setColor(0x00FFFF)
-      .setAuthor('8ball', 'https://findicons.com/files/icons/1700/2d/512/8_ball.png')
-      .addField(args, sayings[result]);
-			message.channel.send({embed: ballEmb})
 }
-
-module.exports.help = {
-    name: "8ball"
-  }
+exports.help = {
+    name: '8ball',
+    description: 'Answers to a question which you ask',
+    usage: '!8ball <question>'
+};
