@@ -1,11 +1,11 @@
 exports.run = async (bot, message, args) => {
 
-    let botmessage = args.join(" ");
+    message.delete();
     
     const embed = new Discord.RichEmbed()
     .setTitle(`${message.author.username} Said..`)
     .setColor("RANDOM")
-    .setDescription(botmessage)
+    .setDescription(args.join(' '))
  
     let msg = await message.channel.send(embed)
 }
