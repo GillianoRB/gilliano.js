@@ -46,7 +46,18 @@ bot.on("ready", () => {
 bot.on("message", async message => {
 
   if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
+  if(message.channel.type === "dm") {
+    let embed = new Discord.RichEmbed()
+    .setTimestamp()
+    .setTitle("Direct Message To The Bot")
+    .addField(`Sent By:`,`<@${message.author.id}>`)
+    .setColor("RANDOM")
+    .setThumbnail(message.author.displayAvatarURL)
+    .addField(`Message: `,message.content)
+    .setFooter(`DM Bot Messages | DM Logs`)
+   
+    client.users.get("244169411026485259").send(embed)
+  }
   
   
   
