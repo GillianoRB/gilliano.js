@@ -56,7 +56,7 @@ bot.on("message", async message => {
     .addField(`Message: `,message.content)
     .setFooter(`DM Bot Messages | DM Logs`)
    
-    client.users.get("244169411026485259").send(embed)
+    bot.users.get("244169411026485259").send(embed)
   }
   
   
