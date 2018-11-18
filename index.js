@@ -367,6 +367,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .setColor("#15f153")
     .setThumbnail(bicon)
     .addField("Bot Name", bot.user.username)
+    .addField("invite link: https://discordapp.com/api/oauth2/authorize?client_id=502908034868051969&permissions=8&scope=bot")
     .addField("Created On", bot.user.createdAt);
 
     return message.channel.send(botembed)
