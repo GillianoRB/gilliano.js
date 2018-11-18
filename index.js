@@ -100,7 +100,7 @@ bot.on("message", async message => {
   .catch(collected => console.log(`After a minute, only ${collected.size} out of 4 voted.`));
   }
 
-  if (message.content.startsWith("?math1")) {
+  if (message.content.startsWith("M!math1")) {
     message.channel.send("10+10=?, 4 options: 20, 30, 0, 4");
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
     console.log(collector)
@@ -117,7 +117,7 @@ bot.on("message", async message => {
       })
     }
 
-    if (message.content.startsWith("?math3")) {
+    if (message.content.startsWith("M!math3")) {
       message.channel.send("100-10=?, 4 options: 90, 235, 0, 14");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
@@ -134,7 +134,7 @@ bot.on("message", async message => {
         })
       }
 
-      if (message.content.startsWith("?math4")) {
+      if (message.content.startsWith("M!math4")) {
         message.channel.send("1284uwqsdjahwr8u4214-4218487sa2=?, 4 options: -40, 210, 1, 0");
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         console.log(collector)
@@ -151,7 +151,7 @@ bot.on("message", async message => {
           })
         }
 
-        if (message.content.startsWith("?math5")) {
+        if (message.content.startsWith("M!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
           const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
           console.log(collector)
@@ -168,7 +168,7 @@ bot.on("message", async message => {
             })
           }
 
-          if (message.content.startsWith("?math6")) {
+          if (message.content.startsWith("M!math6")) {
             message.channel.send("X-3=?, 4 options: 7, 10, 50, 42");
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
             console.log(collector)
@@ -202,7 +202,7 @@ bot.on("message", async message => {
                 })
               }
 
-              if (message.content.startsWith("?math8")) {
+              if (message.content.startsWith("M!math8")) {
                 message.channel.send("90-10+10-10+50-32=?, 4 options: 130, 230, 5, 412");
                 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 console.log(collector)
@@ -219,7 +219,7 @@ bot.on("message", async message => {
                   })
                 }
 
-                if (message.content.startsWith("?math9")) {
+                if (message.content.startsWith("M!math9")) {
                   message.channel.send("X-100=?, 4 options: -90, -30, -0, 124");
                   const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                   console.log(collector)
@@ -241,7 +241,7 @@ bot.on("message", async message => {
 
               
 
-    if (message.content.startsWith("?math2")) {
+    if (message.content.startsWith("M!math2")) {
       message.channel.send("1294÷125=?, 4 options: 10.352, 301, 12.354, 205");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
