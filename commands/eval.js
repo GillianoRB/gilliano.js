@@ -1,29 +1,25 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, msg, args) => {
-  const code = args.join(" ");
-  try {
-      const evaled = client.clean(await eval(code));
-      if(msg.flags.includes("d")) msg.delete();
-      if(msg.flags.includes("s")) return;
-      msg.channel.send(`\`\`\`xl\n${evaled}\n\`\`\``
-      );
-  }
-  catch(err) {
-      if(msg.flags[0] && msg.flags[0] === 's')
-        return msg.delete();
-      msg.channel.send(`\`ERROR\` \`\`\`xl\n${client.clean(err)}\n\`\`\``);
-  }
-};
+exports.run = async (bot, message, args, color, prefix) => {
+    if (message.author.id !== '244169411026485259' && message.author.id !== '244169411026485259') return;
+    try {
+        let codein = args.join(" ");
+        let code = eval(codein);
 
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: []
-};
+        if (typeof code !== 'string')
+            code = require('util').inspect(code, { depth: 0 });
+        let embed = new Discord.RichEmbed()
+        .setAuthor('Evaluate')
+        .setColor('RANDOM')
+        .addField(':inbox_tray: Input', `\`\`\`js\n${codein}\`\`\``)
+        .addField(':outbox_tray: Output', `\`\`\`js\n${code}\n\`\`\``)
+        message.channel.send(embed)
+    } catch(e) {
+        message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
+    }
+}
 
 exports.help = {
-  name: 'eval',
-  description: 'Evaluates arbitrary javascript.',
-  usage: 'eval [...code]'
-};
+    name: 'eval',
+    category: 'OWNER BOT'
+}
