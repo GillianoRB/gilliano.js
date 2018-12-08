@@ -34,7 +34,7 @@ bot.on("ready", () => {
  
     console.log(`${bot.user.username} has started, with ${bot.users.size}  users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`); 
  
-    bot.user.setActivity(`You`, { type: "WATCHING" });
+    bot.user.setActivity(`The Discord members`, { type: "WATCHING" });
 	
  
 });
