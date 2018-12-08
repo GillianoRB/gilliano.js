@@ -207,7 +207,7 @@ bot.on("message", async message => {
                 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 console.log(collector)
                 collector.on('collect', message => {
-                    if (message.content == "130")  
+                    if (message.content == "130")  {
                         message.channel.send("Good Job");
                     } else if (message.content == "230") {
                         message.channel.send("Well You tried...");
