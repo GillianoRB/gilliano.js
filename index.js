@@ -87,12 +87,7 @@ bot.on("message", async message => {
     message.delete();
   }
 
-  if(message.content === spam) {
-        message.reply("Warning: Spamming in this channel is forbidden.");
-        console.log(message.author.username + " (" + message.author.id + ") has sent 10 messages or more in 5 seconds in " + message.channel.name + ".");
-        message.channel.bulkDelete(11); 
-    }
-    
+  
 
 	
   
