@@ -41,7 +41,7 @@ bot.on("ready", () => {
 
 bot.on('guildMemberAdd', member => {
     member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server!'); 
-    member.addRole(member.guild.roles.find(role => role.name === "members"));
+    member.addRole(member.guild.roles.find(role => role.name === "Guests"));
 });
 
 bot.on('guildMemberRemove', member => {
