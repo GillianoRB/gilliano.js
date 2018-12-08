@@ -49,10 +49,91 @@ bot.on('guildMemberRemove', member => {
 });
 
 
-
+var filterWords = [
+    "anal",
+    "anus",
+    "arse",
+    "nigger",
+    "nigga",
+    "ballsack",
+    "balls",
+    "bastard",
+    "bitch",
+    "biatch",
+    "blowjob",
+    "blow job",
+    "bollock",
+    "bollok",
+    "boner",
+    "boob",
+    "bugger",
+    "bum",
+    "buttplug",
+    "clitoris",
+    "cock",
+    "coon",
+    "cunt",
+    "dick",
+    "dildo",
+    "dyke",
+    "fag",
+    "feck",
+    "fellate",
+    "fellatio",
+    "felching",
+    "fucker",
+    "fucking",
+    "fuck",
+    "f u c k",
+    "fudgepacker",
+    "fudge packer",
+    "flang",
+    "homo",
+    "jizz",
+    "knobend",
+    "knob end",
+    "labia",
+    "muff",
+    "penis",
+    "prick",
+    "pube",
+    "pussy",
+    "queer",
+    "scrotum",
+    "sex",
+    "shit",
+    "s hit",
+    "sh1t",
+    "slut",
+    "smegma",
+    "fucken",
+    "spunk",
+    "tit",
+    "tosser",
+    "turd",
+    "twat",
+    "vagina",
+    "wank",
+    "whore",
+    "mofucker",
+    "niger"
+];
 
 
 bot.on("message", async message => {
+    switch (true) {
+        case message.author.bot:
+            return;
+        case new RegExp(filterWords.join("|")).test(message.content.toLowerCase()):
+            const guild = client.guilds.find(guild => guild.id);
+            let edit = message.content.toLowerCase();
+            for (var i in filterWords) {
+                edit = edit.replace(new RegExp(filterWords[i], "g"), "`*****`");
+            }
+            message.delete();
+            message.channel.send("Hey! You cant say that!");
+    }
+
 
   if(message.author.bot) return;
   if(message.channel.type === "dm") {
@@ -87,7 +168,12 @@ bot.on("message", async message => {
     message.delete();
   }
 
-  
+  if(message.content === spam) {
+        message.reply("Warning: Spamming in this channel is forbidden.");
+        console.log(message.author.username + " (" + message.author.id + ") has sent 10 messages or more in 5 seconds in " + message.channel.name + ".");
+        message.channel.bulkDelete(11); 
+    }
+    
 
 	
   
