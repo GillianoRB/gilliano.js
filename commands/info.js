@@ -1,9 +1,17 @@
 exports.run = async (bot, message, args) => {
 
-    let user = message.mentions.users.first() || message.author;
+  let user;
+	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+	// Define the member of a guild.
+    const member = message.guild.member(user);
     
     let embed = new Discord.RichEmbed()
-    .setColor("#4bf442")
+    .setColor("RANDOM")
     .setAuthor(`${user.tag}'s Info`, `${user.avatarURL}`)
     .setFooter(`User ID: ${user.id}`)
     .setTimestamp()
