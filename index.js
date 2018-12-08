@@ -40,11 +40,11 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('520754112569278493').send('**' + member.user.username + '**, has joined the server!'); 
+    member.guild.channels.get('520778007808573462').send('**' + member.user.username + '**, has joined the server!'); 
 });
 
 bot.on('guildMemberRemove', member => {
-    member.guild.channels.get('520757580176293889').send('**' + member.user.username + '**, has left the server');
+    member.guild.channels.get('520778007808573462').send('**' + member.user.username + '**, has left the server');
     //
 });
 
@@ -399,7 +399,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("Time", message.createdAt)
     .addField("Reason", reason);
 
-    let reportschannel = message.guild.channels.find("name", "reports");
+    let reportschannel = message.guild.channels.find("name", "logs");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
     message.delete().catch(O_o=>{});
