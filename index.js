@@ -416,7 +416,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("!ban (user) (reason)", "banning")
     .addField("!kick (user) (reason)", "kicking")
     .addField("!report (user) (reason)", "reporting")
-    .addField("!removerole and ?addrole", "adding roles and removing tag the person");
+    .addField("!removerole and !addrole", "adding roles and removing tag the person");
 
     message.channel.send(helpmodEmbed);
   }
@@ -434,7 +434,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("!google (something)", "searches at google")
     .addField("!ratewaifu (user)", "rates user ")
     .addField("!info (user)", "gives user info")
-    .addField("!serverinfo (user)", "gives guild info");
+    .addField("!serverinfo ", "gives guild info");
 
     message.channel.send(helpmodEmbed);
   }
