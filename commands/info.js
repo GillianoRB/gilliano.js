@@ -1,4 +1,3 @@
-const Discord = require("discord.js");
 exports.run = async (bot, message, args) => {
 
     let user = message.mentions.users.first() || message.author;
@@ -14,7 +13,8 @@ exports.run = async (bot, message, args) => {
     .addField("User Status:", user.presence.status)
     .addField("User Game:", `${user.presence.game ? user.presence.game.name: 'Not playing anything!'}`)
     message.channel.send(embed)
-    }
-    exports.help = {
-      name: "info"
-    }
+    
+  }
+  exports.help = {
+    name: "info"
+  }
