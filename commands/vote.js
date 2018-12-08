@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 
             .setColor("0x#FF0000")
 
-  await message.channel.send({embed: sumsum});
+  await message.channel.send(sumsum);
 
 }
 
