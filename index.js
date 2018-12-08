@@ -93,14 +93,14 @@ bot.on("message", async message => {
     message.channel.send(`Hey, ${message.author.username}`)
   }
   
-  if (message.content.startsWith("?vote")) {
+  if (message.content.startsWith("!vote")) {
 
     channel.awaitMessages(filter, { max: 4, time: 60000, errors: ['time'] })
   .then(collected => console.log(collected.size))
   .catch(collected => console.log(`After a minute, only ${collected.size} out of 4 voted.`));
   }
 
-  if (message.content.startsWith("M!math1")) {
+  if (message.content.startsWith("!math1")) {
     message.channel.send("10+10=?, 4 options: 20, 30, 0, 4");
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
     console.log(collector)
@@ -117,7 +117,7 @@ bot.on("message", async message => {
       })
     }
 
-    if (message.content.startsWith("M!math3")) {
+    if (message.content.startsWith("!math3")) {
       message.channel.send("100-10=?, 4 options: 90, 235, 0, 14");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
@@ -134,7 +134,7 @@ bot.on("message", async message => {
         })
       }
 
-      if (message.content.startsWith("M!math4")) {
+      if (message.content.startsWith("!math4")) {
         message.channel.send("1284uwqsdjahwr8u4214-4218487sa2=?, 4 options: -40, 210, 1, 0");
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         console.log(collector)
@@ -151,7 +151,7 @@ bot.on("message", async message => {
           })
         }
 
-        if (message.content.startsWith("M!math5")) {
+        if (message.content.startsWith("!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
           const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
           console.log(collector)
@@ -168,7 +168,7 @@ bot.on("message", async message => {
             })
           }
 
-          if (message.content.startsWith("M!math6")) {
+          if (message.content.startsWith("!math6")) {
             message.channel.send("X-3=?, 4 options: 7, 10, 50, 42");
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
             console.log(collector)
@@ -185,7 +185,7 @@ bot.on("message", async message => {
               })
             }
 
-            if (message.content.startsWith("?math7")) {
+            if (message.content.startsWith("!math7")) {
               message.channel.send("VII-7=?, 4 options: 124, 30512, 0, 42");
               const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
               console.log(collector)
@@ -202,12 +202,12 @@ bot.on("message", async message => {
                 })
               }
 
-              if (message.content.startsWith("M!math8")) {
+              if (message.content.startsWith("!math8")) {
                 message.channel.send("90-10+10-10+50-32=?, 4 options: 130, 230, 5, 412");
                 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 console.log(collector)
                 collector.on('collect', message => {
-                    if (message.content == "130") {
+                    if (message.content == "130")  
                         message.channel.send("Good Job");
                     } else if (message.content == "230") {
                         message.channel.send("Well You tried...");
@@ -219,7 +219,7 @@ bot.on("message", async message => {
                   })
                 }
 
-                if (message.content.startsWith("M!math9")) {
+                if (message.content.startsWith("!math9")) {
                   message.channel.send("X-100=?, 4 options: -90, -30, -0, 124");
                   const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                   console.log(collector)
@@ -241,7 +241,7 @@ bot.on("message", async message => {
 
               
 
-    if (message.content.startsWith("M!math2")) {
+    if (message.content.startsWith("!math2")) {
       message.channel.send("1294÷125=?, 4 options: 10.352, 301, 12.354, 205");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
@@ -404,10 +404,10 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help Mod")
     .setColor("#f48c42")
-    .addField("?ban (user) (reason)", "banning")
-    .addField("?kick (user) (reason)", "kicking")
-    .addField("?report (user) (reason)", "reporting")
-    .addField("?removerole and ?addrole", "adding roles and removing tag the person");
+    .addField("!ban (user) (reason)", "banning")
+    .addField("!kick (user) (reason)", "kicking")
+    .addField("!report (user) (reason)", "reporting")
+    .addField("!removerole and ?addrole", "adding roles and removing tag the person");
 
     message.channel.send(helpmodEmbed);
   }
@@ -416,16 +416,16 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help fun")
     .setColor("#f48c42")
-    .addField("?avatar (user)", "avatar of user")
-    .addField("?rps", "rock paper scissor")
-    .addField("?slap (user)", "clap")
-    .addField("?kiss (user)", "kisses user")
-    .addField("?hug (user)", "hugs user")
-    .addField("?coinflip", "flips coin")
-    .addField("?google (something)", "searches at google")
-    .addField("?ratewaifu (user)", "rates user ")
-    .addField("?info (user)", "gives user info")
-    .addField("?serverinfo (user)", "gives guild info");
+    .addField("!avatar (user)", "avatar of user")
+    .addField("!rps", "rock paper scissor")
+    .addField("!slap (user)", "clap")
+    .addField("!kiss (user)", "kisses user")
+    .addField("!hug (user)", "hugs user")
+    .addField("!coinflip", "flips coin")
+    .addField("!google (something)", "searches at google")
+    .addField("!ratewaifu (user)", "rates user ")
+    .addField("!info (user)", "gives user info")
+    .addField("!serverinfo (user)", "gives guild info");
 
     message.channel.send(helpmodEmbed);
   }
@@ -434,15 +434,15 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help math")
     .setColor("#f48c42")
-    .addField("?math1", "math 1 = easy")
-    .addField("?math2", "math 2 = medium")
-    .addField("?math3", "math 3 = hard")
-    .addField("?math4", "math 4 = very hard")
-    .addField("?math5", "math 5 = most hard")
-    .addField("?math6", "math 6 = good luck about this 1")
-    .addField("?math7", "math 7 = well gg ")
-    .addField("?math8", "math 8 = ULTRA HARD")
-    .addField("?math9", "math 9 = medium hard");
+    .addField("!math1", "math 1 = easy")
+    .addField("!math2", "math 2 = medium")
+    .addField("!math3", "math 3 = hard")
+    .addField("!math4", "math 4 = very hard")
+    .addField("!math5", "math 5 = most hard")
+    .addField("!math6", "math 6 = good luck about this 1")
+    .addField("!math7", "math 7 = well gg ")
+    .addField("!math8", "math 8 = ULTRA HARD")
+    .addField("!math9", "math 9 = medium hard");
 
     message.channel.send(helpmodEmbed);
   }
@@ -451,9 +451,9 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpEmbed = new Discord.RichEmbed()
     .setDescription("Help")
     .setColor("#f48c42")
-    .addField("?help-mod", "only for mod")
-    .addField("?help-fun", "for fun")
-    .addField("?help-math", "for maths");
+    .addField("!help-mod", "only for mod")
+    .addField("!help-fun", "for fun")
+    .addField("!help-math", "for maths");
 
     message.channel.send(helpEmbed);
   }
