@@ -5,11 +5,11 @@ const disagree = "❎";
 
 module.exports.run = async (bot, message, args) => {
 
-  let msg = await message.channel.send("Vote now! (10 Seconds)");
-  await msg.react(agree);
-  await msg.react(disagree);
+  let msg = message.channel.send("Vote now! (10 Seconds)");
+  msg.react(agree);
+  msg.react(disagree);
 
-  const reactions = await msg.awaitReactions(reaction => reaction.emoji.name === agree || reaction.emoji.name === disagree, {time: 10000});
+  const reactions = msg.awaitReactions(reaction => reaction.emoji.name === agree || reaction.emoji.name === disagree, {time: 10000});
   msg.delete();
 
   var NO_Count = reactions.get(disagree).count;
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 
             .setColor("0x#FF0000")
 
-  await message.channel.send(sumsum);
+  message.channel.send(sumsum);
 
 }
 
