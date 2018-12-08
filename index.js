@@ -39,17 +39,14 @@ bot.on("ready", () => {
  
 });
 
-bot.on("guildMemberAdd", (member) => {
-    const guild = member.guild;
-    newUsers.set(member.id, member.user);
-  
-    if (newUsers.size > 10) {
-      const defaultChannel = guild.channels.find(channel => channel.permissionsFor(guild.me).has("SEND_MESSAGES"));
-      const userlist = newUsers.map(u => u.toString()).join(" ");
-      defaultChannel.send("Welcome our new users!\n" + userlist);
-      newUsers.clear();
-    }
-  });
+bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('channelID').send('**' + member.user.username + '**, has joined the server!'); 
+});
+
+bot.on('guildMemberRemove', member => {
+    member.guild.channels.get('channelID').send('**' + member.user.username + '**, has left the server');
+    //
+});
 
 
 
