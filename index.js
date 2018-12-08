@@ -2,7 +2,6 @@ const botconfig = require("./botconfig.json");
 const YTDL = require("ytdl-core");;
 const Discord = require("discord.js");
 const fs = require("fs");
-let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 const bot = new Discord.Client({ disableEveryone: true });
 bot.commands = new Discord.Collection();
 let purple = botconfig.purple;
