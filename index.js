@@ -177,7 +177,7 @@ bot.on("message", async message => {
             })
           }
 
-          if (message.content.startsWith(PREFIX + 'Userinfo')) {
+          if (message.content.startsWith('!info')) {
 
             const UserInfo = new Discord.MessageEmbed()
     
