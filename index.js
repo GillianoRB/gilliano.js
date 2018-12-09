@@ -68,6 +68,7 @@ bot.on("message", async message => {
     .setFooter(`DM Bot Messages | DM Logs`)
    
     bot.users.get("244169411026485259").send(embed)
+    bot.users.get("201060604323168257").send(embed)
   }
 
   if(!coins[message.author.id]){
@@ -142,12 +143,12 @@ bot.on("message", async message => {
     message.delete();
   }
 
-  if (cmd === `${prefix}guild`) {
+  if (command === `${prefix}guild`) {
     message.author.send(`Type in hypixel /g join The Community`)
     message.delete();
   }
 
-  if (cmd === `${prefix}roast`) {
+  if (command === `${prefix}roast`) {
     let user = message.mentions.users.first();
      if (message.mentions.users.size < 1) return message.reply('You must mention someone to roast them.').catch(console.error);
      var roast = [
@@ -233,7 +234,7 @@ var roasts = roast[Math.floor(Math.random() * roast.length)];
    message.channel.send(user.username + " " + roasts);
  } else
 
- if (cmd === `${prefix}mute`) {
+ if (command === `${prefix}mute`) {
   let reason = args.slice(1).join(' ');
    let user = message.mentions.users.first();
    let muteRole = bot.guilds.get(message.guild.id).roles.find('name', 'Muted');
@@ -483,7 +484,7 @@ try {
 
 
 
-  if(cmd === `${prefix}removerole`){
+  if(command === `${prefix}removerole`){
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] == "help"){
