@@ -4,6 +4,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({ disableEveryone: true });
 bot.commands = new Discord.Collection();
+let coins = require("./coins.json");
+let xp = require("./xp.json");
 let purple = botconfig.purple;
 
 
@@ -40,12 +42,12 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server! This server has ' + member.guild.memberCount +  ' members now! :)'); 
-    member.addRole(member.guild.roles.find(role => role.name === "Guests"));
+    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server!'); 
+    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "members"));
 });
 
 bot.on('guildMemberRemove', member => {
-    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has left the server This server has ' + member.guild.memberCount + ' members :(');
+    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has left the server');
 });
 
 
@@ -53,7 +55,6 @@ bot.on('guildMemberRemove', member => {
 
 
 bot.on("message", async message => {
-
 
   if(message.author.bot) return;
   if(message.channel.type === "dm") {
@@ -68,10 +69,63 @@ bot.on("message", async message => {
    
     bot.users.get("244169411026485259").send(embed)
   }
+
+  if(!coins[message.author.id]){
+    coins[message.author.id] = {
+      coins: 0
+    };
+  }
+
+  let coinAmt = Math.floor(Math.random() * 15) + 1;
+  let baseAmt = Math.floor(Math.random() * 15) + 1;
+  console.log(`${coinAmt} ; ${baseAmt}`);
+
+  if(coinAmt === baseAmt){
+    coins[message.author.id] = {
+      coins: coins[message.author.id].coins + coinAmt
+    };
+  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+    if (err) console.log(err)
+  });
+  let coinEmbed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#0000FF")
+  .addField("💸", `${coinAmt} coins added!`);
+
+  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
+  }
+
+  let xpAdd = Math.floor(Math.random() * 7) + 8;
+  console.log(xpAdd);
+
+  if(!xp[message.author.id]){
+    xp[message.author.id] = {
+      xp: 0,
+      level: 1
+    };
+  }
+
+
+  let curxp = xp[message.author.id].xp;
+  let curlvl = xp[message.author.id].level;
+  let nxtLvl = xp[message.author.id].level * 300;
+  xp[message.author.id].xp =  curxp + xpAdd;
+  if(nxtLvl <= xp[message.author.id].xp){
+    xp[message.author.id].level = curlvl + 1;
+    let lvlup = new Discord.RichEmbed()
+    .setTitle("Level Up!")
+    .setColor(purple)
+    .addField("New Level", curlvl + 1);
+
+    message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+  }
+  fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+    if(err) console.log(err)
+  });
   
   
   
-  const swearWords = ["fuck", "motherfucker","bitch", "gilliano"];
+  const swearWords = ["dddawd", "asgwe","nnoo", "gillydea"];
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.delete();
         message.author.send('Hey! That word has been banned, please don\'t use it!');
@@ -87,8 +141,6 @@ bot.on("message", async message => {
     message.author.send(`NUUU dont ping muu`)
     message.delete();
   }
-    
-
 	
   
 
@@ -179,9 +231,6 @@ bot.on("message", async message => {
               }
             })
           }
-
-          
-    
 
           if (message.content.startsWith("!math6")) {
             message.channel.send("X-3=?, 4 options: 7, 10, 50, 42");
@@ -422,7 +471,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("!ban (user) (reason)", "banning")
     .addField("!kick (user) (reason)", "kicking")
     .addField("!report (user) (reason)", "reporting")
-    .addField("!removerole and !addrole", "adding roles and removing tag the person");
+    .addField("!removerole and ?addrole", "adding roles and removing tag the person");
 
     message.channel.send(helpmodEmbed);
   }
@@ -440,7 +489,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("!google (something)", "searches at google")
     .addField("!ratewaifu (user)", "rates user ")
     .addField("!info (user)", "gives user info")
-    .addField("!serverinfo ", "gives guild info");
+    .addField("!serverinfo (user)", "gives guild info");
 
     message.channel.send(helpmodEmbed);
   }
