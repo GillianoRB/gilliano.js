@@ -42,12 +42,12 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server! there are now ' + member.guild.memberCount + ' members'); 
+    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server! there are now ' + member.guild.memberCount + ' now'); 
     member.addRole(member.guild.roles.find(role => role.name === "Guests"));
 });
 
 bot.on('guildMemberRemove', member => {
-    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has left the server! there are now ' + member.guild.memberCount + ' members');
+    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has left the server! there are now ' + member.guild.memberCount + ' now');
 });
 
 
@@ -139,6 +139,11 @@ bot.on("message", async message => {
   
   if (message.content.startsWith("DemonGilly")) {
     message.author.send(`NUUU dont ping muu`)
+    message.delete();
+  }
+
+  if (message.content.startsWith("guild")) {
+    message.author.send(`Type in hypixel /g join The Community`)
     message.delete();
   }
 	
