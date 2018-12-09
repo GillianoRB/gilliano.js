@@ -40,7 +40,7 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server! This server has ' + member.memberCount + ' members now! :)'); 
+    member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server! This server has ' + member.memberCount +  ' members now! :)'); 
     member.addRole(member.guild.roles.find(role => role.name === "Guests"));
 });
 
@@ -128,7 +128,7 @@ bot.on("message", async message => {
         case message.author.bot:
             return;
         case new RegExp(filterWords.join("|")).test(message.content.toLowerCase()):
-            const guild = client.guilds.find(guild => guild.id);
+            const guild = message.guilds.find(guild => guild.id);
             let edit = message.content.toLowerCase();
             for (var i in filterWords) {
                 edit = edit.replace(new RegExp(filterWords[i], "g"), "`*****`");
