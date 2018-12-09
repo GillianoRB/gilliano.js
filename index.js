@@ -42,12 +42,13 @@ bot.on("ready", () => {
 bot.on('guildMemberAdd', member => {
     member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has joined the server!'); 
     member.addRole(member.guild.roles.find(role => role.name === "Guests"));
+    member.guild.channel.get('520778562421129219').send(`This server has ${guild.memberCount} members now! :)`);
 });
 
 bot.on('guildMemberRemove', member => {
     member.guild.channels.get('520778562421129219').send('**' + member.user.username + '**, has left the server');
+    member.guild.channel.get('520778562421129219').send(`This server has ${guild.memberCount} members now! :(`);
 });
-
 
 
 
