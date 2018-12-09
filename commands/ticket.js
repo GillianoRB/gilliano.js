@@ -1,3 +1,4 @@
+const discord = require('discord.js'); 
 exports.run = (client, message, args, guild) => { //dingen definen
 
   //Onderwerp van de ticket
