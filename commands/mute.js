@@ -3,13 +3,21 @@ const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermission("ADMINISTRATION")) return message.reply("Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.");
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if (!tomute) return message.reply("Couldn't find user.");
-    if (tomute.hasPermission("ADMINISTRATION")) return message.reply("The user you are trying to mute is either the same, or higher role than you.");
+    if (!message.member.hasPermissions ('ADMINISTRATION')) return message.channel.send("You need **ADMINISTRATION** permissions for use this command.")
+    const modlog = message.guild.channels.find(channel => channel.name === 'mod-logs');
+    const mod = message.author;
+    let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if (!user) return message.channel.send("Couldn't find user.")
+    let reason = message.content.split(" ").slice(2).join(" ");
+    if (!reason) return message.channel.send('lease specify a reason for the mute!')
     let muterole = message.guild.roles.find(`name`, "Muted");
-
-    if (!muterole) {
+    if(args[0] == "help"){
+      message.reply("Usage: k!mute <user> <reason>");
+      return;
+    }
+  let muteChannel = message.guild.channels.find(`name`, "logs");
+  if (!muteChannel) return message.channel.send('**Please create a channel with the name `logs`**')
+  if (!muterole) {
         try {
             muterole = await message.guild.createRole({
                 name: "Muted",
@@ -28,17 +36,19 @@ module.exports.run = async (bot, message, args) => {
     }
 
     let mutetime = args[1];
-    if (!mutetime) return message.reply("You didn't specify a time!");
 
-    await (tomute.addRole(muterole.id));
-    message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
-
-    setTimeout(function() {
-        tomute.removeRole(muterole.id);
-        message.channel.send(`<@${tomute.id}> has been unmuted!`);
-    }, ms(mutetime));
-
+    await (user.addRole(muterole.id));
+    const muteembed = new Discord.RichEmbed()
+            .setAuthor(' Action | Mute', `https://images-ext-2.discordapp.net/external/Wms63jAyNOxNHtfUpS1EpRAQer2UT0nOsFaWlnDdR3M/https/image.flaticon.com/icons/png/128/148/148757.png`)
+            .addField('User', `<@${user.id}>`)
+            .addField('Reason', `${reason}`)
+            .addField('Moderator', `${mod}`)
+            .setColor('#D9D900')
+        modlog.send(muteembed)
+  
+  
 }
+
 
 exports.conf = {
     aliases: [],
@@ -47,6 +57,5 @@ exports.conf = {
 
 module.exports.help = {
     name: "mute",
-    description: 'Denies the user from speaking for the time provided.',
-    usage: 'mute [time: hours, minitues, or days.]'
+    category: "MODERATION",
 }
