@@ -147,7 +147,7 @@ bot.on("message", async message => {
     message.delete();
   }
 
-  if (command === "roast") {
+  if (message.content.startsWith === ("!roast")) {
     let user = message.mentions.users.first();
      if (message.mentions.users.size < 1) return message.reply('You must mention someone to roast them.').catch(console.error);
      var roast = [
@@ -233,7 +233,7 @@ var roasts = roast[Math.floor(Math.random() * roast.length)];
    message.channel.send(user.username + " " + roasts);
  } else
 
- if (command === "mute") {
+ if (message.content.startsWith === ("!mute")) {
   let reason = args.slice(1).join(' ');
    let user = message.mentions.users.first();
    let muteRole = bot.guilds.get(message.guild.id).roles.find('name', 'Muted');
