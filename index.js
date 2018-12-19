@@ -539,7 +539,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("Reason", bReason);
 
     let banChannel = message.guild.channels.find(`name`, "logs");
-    if(!banChannel) return message.channel.send("Cant Find The Logs channel");
+    if(!banChannel) return message.channel.send("Cant Find The Logs channel pls create a logs channel");
 
     message.guild.member(bUser).ban(bReason);
     banChannel.send(banEmbed);
