@@ -52,19 +52,17 @@ bot.on('guildMemberRemove', member => {
 
 
 bot.on("messageDelete", (messageDelete) => {
-  
-  let embed = new Discord.RichEmbed()
-    .setTitle("**DELETED MESSAGE**")
-    .setColor("#fc3c3c")
-    .addField("Author", msg.author.tag, true)
-    .addField("Channel", msg.channel, true)
-    .addField("Message", msg.content)
-    .addField("Executor", entry.executor)
-    .addField("Reason", entry.reason || "Unspecified")
-    .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
 
-  let channel = msg.guild.channels.find(x => x.name === 'logs');
-  channel.send({embed});
+  let DeleteEmbed = new Discord.RichEmbed()
+  .setTitle("**DELETED MESSAGE**")
+  .setColor("#fc3c3c")
+  .addField("Author", messageDelete.author.tag, true)
+  .addField("Channel", messageDelete.channel, true)
+  .addField("Message", messageDelete.content)
+  .setFooter(`Message ID: ${messageDelete.id} | Author ID: ${messageDelete.author.id}`);
+
+  let DeleteChannel = messageDelete.guild.channels.find(x => x.name === "delete-log");
+  DeleteChannel.send(DeleteEmbed);
 });
 
 
