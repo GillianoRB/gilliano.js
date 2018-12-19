@@ -65,7 +65,7 @@ bot.on("messageDelete", (messageDelete) => {
     .addField("Reason", entry.reason || "Unspecified")
     .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
 
-  let channel = msg.guild.channels.find(x => x.name === 'delete-log');
+  let channel = msg.guild.channels.find(x => x.name === 'logs');
   channel.send({embed});
 });
 
