@@ -51,7 +51,19 @@ bot.on('guildMemberRemove', member => {
 });
 
 
+bot.on("messageDelete", (messageDelete) => {
 
+  let DeleteEmbed = new Discord.RichEmbed()
+  .setTitle("**DELETED MESSAGE**")
+  .setColor("#fc3c3c")
+  .addField("Author", messageDelete.author.tag, true)
+  .addField("Channel", messageDelete.channel, true)
+  .addField("Message", messageDelete.content)
+  .setFooter(`Message ID: ${messageDelete.id} | Author ID: ${messageDelete.author.id}`);
+
+  let DeleteChannel = messageDelete.guild.channels.find(x => x.name === "delete-log");
+  DeleteChannel.send(DeleteEmbed);
+});
 
 
 bot.on("message", async message => {
