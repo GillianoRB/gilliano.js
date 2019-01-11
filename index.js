@@ -465,20 +465,20 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     message.channel.send(helpmodEmbed);
   }
 	
-if(cmd === !dm){
 
-  let dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if (!dUser) return message.channel.send("Can't find user!")
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You can't you that command!")
-  let dMessage = args.join(" ").slice(22);
-  if(dMessage.length < 1) return message.reply('You must supply a message!')
+  if(cmd === `${prefix}dm`){
+    let dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    if (!dUser) return message.channel.send("Can't find user!")
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You can't you that command!")
+    let dMessage = args.join(" ").slice(22);
+    if(dMessage.length < 1) return message.reply('You must supply a message!')
 
-  dUser.send(`${dUser} A moderator from WP Coding Club sent you: ${dMessage}`)
+    dUser.send(`${dMessage}`)
 
-  message.author.send(`${message.author} You have sent your message to ${dUser}`)
+    message.author.send(`${message.author} You have sent your message to ${dUser}`)
 
-  }
-})
+ }
+
 
   if(cmd === `${prefix}help-math`){
     let helpmodEmbed = new Discord.RichEmbed()
