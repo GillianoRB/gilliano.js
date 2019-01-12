@@ -10,7 +10,7 @@ exports.run = (client, message, args, tools) => {
    
   if(args[0] === sreverse) {
   
-  sreverse = `${args.join(' ')}..Wait... You broke it!`
+  sreverse = `${args.join(' ')}..OH NO YOU BROKE IT!`
   
   }
   const reverseEmbed = new Discord.RichEmbed()
