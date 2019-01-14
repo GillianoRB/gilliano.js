@@ -6,10 +6,10 @@ module.exports.run = async (bot, message, args) => {
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
-    .setDescription("Warning")
+    .setDescription("Reports")
     .setColor("#15f153")
-    .addField("Warned User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Warned By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", rreason);
@@ -24,5 +24,5 @@ module.exports.run = async (bot, message, args) => {
 }
  
 module.exports.help = {
-  name: "warn"
+  name: "report"
 }
