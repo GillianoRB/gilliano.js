@@ -279,6 +279,27 @@ bot.on("message", async message => {
         })
       }
 
+      if (message.content.startsWith("!help-hypixel")) {
+        message.channel.send("Type which command you want to know: hypixelinfo, hypixelxp, hpquests, hpbwachievements, hpguildtop10, hpachievements");
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        console.log(collector)
+        collector.on('collect', message => {
+            if (message.content == "hypixelinfo") {
+                message.channel.send("The command is : !hypixelinfo");
+            } else if (message.content == "hypixelxp") {
+                message.channel.send("the command is : !hypixelxp");
+            } else if (message.content == "hpquests") {
+                message.channel.send("command is : !hpquests");
+            } else if (message.content == "hpbwachievements") {
+                message.channel.send("command is : !hpbwachievements")
+            } else if (message.content == "hpguildtop10") {
+                message.channel.send("command is : !hpguildtop10")
+            } else if (message.content == "hpachievements") {
+                message.channel.send("command is : !hpachievements")
+        }
+    })
+}
+
 
   
 
