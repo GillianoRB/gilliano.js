@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   .addField('User:', `${user.username}#${user.discriminator}`)
   .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
   .addField('Reason', reason);
-  message.channel.send(':white_check_mark: Success! I\'ve logged the warning in <#293573342999609345>.')
+  message.channel.send(':white_check_mark: Success! I\'ve logged the warning in <#524038564485267457>.')
   return client.channels.get(logchannel.id).send({embed});
 };
 
