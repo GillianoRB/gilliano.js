@@ -365,33 +365,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     return message.channel.send(botembed)
   }
 
-  if(cmd === `${prefix}report`){
-
-    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.got (args[0]));
-    if(!rUser) return message.channel.send("Couldn't find user");
-    let reason = args.join (" ").slice(22);
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No Can Do Pal!");
-    if(rUser.hasPermission("ADMINISTRATOR")) return message.channel.send("That Person Cant Be Report Server Owner/ Higher then my role!");
-
-    let reportEmbed = new Discord.RichEmbed()
-    .setDescription("Reports")
-    .setColor("$15f153")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Reported by", `${message.author} with ID: ${message.author.id}`)
-    .addField("Channel", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", reason);
-
-    let reportschannel = message.guild.channels.find("name", "logs");
-    if(!reportschannel) return message.channel.send("Couldn't find logs channel.");
-
-    message.delete().catch(O_o=>{});
-    reportschannel.send(reportEmbed);
-
-    return;
-
-  }
-
+  
   if(cmd === `${prefix}help-mod`){
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help Mod")
@@ -467,7 +441,8 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .setColor("#f48c42")
     .addField("!help-mod", "only for mod")
     .addField("!help-fun", "for fun")
-    .addField("!help-math", "for maths");
+    .addField("!help-math", "for maths")
+    .addField("!help-hypixel", "for hyoixel");
 
     message.channel.send(helpEmbed);
   }
