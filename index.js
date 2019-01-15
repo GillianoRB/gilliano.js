@@ -442,8 +442,8 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("!help-mod", "only for mod")
     .addField("!help-fun", "for fun")
     .addField("!help-math", "for maths")
-    .addField("!help-hypixel", "for hyoixel");
-
+    .addField("!help-hypixel", "for hypixel");
+	  
     message.channel.send(helpEmbed);
   }
 
