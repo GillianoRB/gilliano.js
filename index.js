@@ -41,7 +41,7 @@ bot.on("ready", () => {
               }
         })
         setInterval (function () {
-             defaultChannel.send("general") //send it to whatever channel the bot has permissions to send on
+             defaultChannel.send("Dont forget that the command for help is !help") //send it to whatever channel the bot has permissions to send on
         }, 30 * 1000);
   })
 
