@@ -31,6 +31,20 @@ fs.readdir("./commands/", (err, files) => {
 
 
 bot.on("ready", () => {
+    bot.guilds.forEach((guild) => { //for each guild the bot is in
+        let defaultChannel = "";
+        guild.channels.forEach((channel) => {
+              if(channel.type == "text" && defaultChannel == "") {
+              if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                  defaultChannel = channel;
+              }
+              }
+        })
+        setInterval (function () {
+             defaultChannel.send("general") //send it to whatever channel the bot has permissions to send on
+        }, 30 * 1000);
+  })
+
  
     console.log(`${bot.user.username} has started, with ${bot.users.size}  users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`); 
  
