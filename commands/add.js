@@ -1,3 +1,5 @@
+const Discord = require('discord.js')
+
 exports.run = async (client, message, [x, y, z]) => {
     if (!x || !y) { return message.channel.send("You need two numbers to add, baka!"); }
     x === client.funcs.constantMath(client, message, x);
