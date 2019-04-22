@@ -66,7 +66,7 @@ message.guild.createChannel("🎫ticket-" + userName, "text").then(c => {//Wat p
     .addField("Reason", `**${onderwerp}**`)
     .setThumbnail(`${message.author.avatarURL}`)
     .setColor("GREEN")
-    .setDescription("Please wait for a staffmember to join your ticket. If you dont get any reaction within 3 hours. You can tag @support rank. We will reply to this ticket as soon as possible.", true)
+    .setDescription("Please wait for a staffmember to join your ticket. If you dont get any reaction within 3 hours. You can tag @support. We will reply to this ticket as soon as possible.", true)
     .setTimestamp()
     .setFooter("Ticket created on:", bicon);
     c.send({ embed: ticketEmbed });
