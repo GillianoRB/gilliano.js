@@ -337,11 +337,12 @@ bot.on("message", async message => {
     if(message.member.roles.has(role.id)) return message.channel.send(`***${message.author.username}** You are Already Verified*`)
   
     await(message.member.addRole(role));
+	 
   
     try{
       await message.author.send(`You have been verified.`)
     }catch(e){
-      message.delete().catch(O_o=>{});
+      message.delete();
       message.channel.send(`~You're DM is locked~`)
     }
   }
