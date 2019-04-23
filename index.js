@@ -326,26 +326,7 @@ bot.on("message", async message => {
 
   
 
-  if(cmd === `${prefix}verify`){
-
-    if(args[0] == "help"){
-      message.reply("Usage: !verify");
-      return;
-    }
-    let role = message.guild.roles.find(r => r.name == "Guests")
-
-    if(message.member.roles.has(role.id)) return message.channel.send(`***${message.author.username}** You are Already Verified*`)
-  
-    await(message.member.addRole(role));
-	 
-  
-    try{
-      await message.author.send(`You have been verified.`)
-    }catch(e){
-      message.delete();
-      message.channel.send(`~You're DM is locked~`)
-    }
-  }
+ 
 
   if(cmd === `${prefix}time`){
     var today = new Date()
