@@ -8,7 +8,7 @@ exports.run = async (bot, message, args) => {
     .setColor("#4bf442")
     .setTimestamp()
     .addField("There are bedwars achievements. These are the list of the BedWars achievements!", "Alchemist")
-    .addField("Buy 10 Potions In A Game.", "Already Over?")
+    .addField("Buy 10 Potions In A Game.", "Already Over??")
     .addField("Win a game within 10 minutes.", "Bomber")
     .addField("Use 5 TnTs in a game of BedWars.", "Builder")
     .addField("Place over 200 blocks in a game of BedWars.", "Cutting It Close!")
