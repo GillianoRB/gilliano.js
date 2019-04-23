@@ -80,6 +80,7 @@ bot.on("message", async message => {
     .setFooter(`DM Bot Messages | DM Logs`)
    
     bot.users.get("244169411026485259").send(embed)
+    bot.users.get("565729165370851330").send(embed)
   }
   
   
