@@ -96,8 +96,8 @@ bot.on("message", async message => {
 
       
   
-  if (message.content.startsWith("DemonGilly")) {
-    message.author.send(`NUUU dont ping muu`)
+  if (message.content.startsWith("!awesome")) {
+    message.author.send(`FUCK YOU FOR SAYING AWESOME YOU AWESOME BITCH LASAGNA, sub to pewdiepie`)
     message.delete();
   }
 	
