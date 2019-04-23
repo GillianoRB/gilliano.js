@@ -6,7 +6,7 @@ exports.run = async (bot, message, args, ops) => {
     
     const embed = new Discord.RichEmbed()
         .setColor("#ffffff") //To change color do .setcolor("#fffff")
-        .setFooter('^^^^^^^^^')
+        .setFooter('^^^^^^^^^^')
         .setDescription(args.join(' '))
         .setTitle(`${message.author.username} Said`);
 
