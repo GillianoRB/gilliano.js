@@ -284,26 +284,7 @@ bot.on("message", async message => {
         })
       };
 
-      if (message.content.startsWith("m!help-hypixel")) {
-        message.channel.send("Type which command you want to know: hypixelinfo, hypixelxp, hpquests, hpbwachievements, hpguildtop10, hpachievements");
-        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
-        console.log(collector)
-        collector.on('collect', message => {
-            if (message.content == "hypixelinfo") {
-                message.channel.send("The command is : m!hypixelinfo")
-            } else if (message.content == "hypixelxp") {
-                message.channel.send("the command is : m!hypixelxp")
-            } else if (message.content == "hpquests") {
-                message.channel.send("command is : m!hpquests")
-            } else if (message.content == "hpbwachievements") {
-                message.channel.send("command is : m!hpbwachievements")
-            } else if (message.content == "hpguildtop10") {
-                message.channel.send("command is : m!hpguildtop10")
-            } else if (message.content == "hpachievements") {
-                message.channel.send("command is : m!hpachievements");
-        }
-    })
-};
+      
 
 
   
@@ -387,7 +368,9 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("m!report (user) (reason)", "reporting")
     .addField("m!Lockdown (time: s, m, h)")
     .addField("m!poll (question)")
-    .addField("m!mute (user)");
+    .addField("m!mute (user)")
+    .addField("m!addrole (user) (role name)")
+    .addField("m!removerole (user) (role name)");
 
     message.channel.send(helpmodEmbed);
   };
