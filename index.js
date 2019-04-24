@@ -97,7 +97,7 @@ bot.on("message", async message => {
 
       
   
-  if (message.content.startsWith("!awesome")) {
+  if (message.content.startsWith("m!awesome")) {
     message.author.send(`FUCK YOU FOR SAYING AWESOME YOU AWESOME BITCH LASAGNA, sub to pewdiepie`)
     message.delete();
   }
@@ -117,12 +117,7 @@ bot.on("message", async message => {
     message.channel.send(`Hey, ${message.author.username}`)
   }
   
-  if (message.content.startsWith("!vote")) {
-
-    channel.awaitMessages(filter, { max: 4, time: 60000, errors: ['time'] })
-  .then(collected => console.log(collected.size))
-  .catch(collected => console.log(`After a minute, only ${collected.size} out of 4 voted.`));
-  }
+  
 
   if (message.content.startsWith("m!math1")) {
     message.channel.send("10+10=?, 4 options: 20, 30, 0, 4");
@@ -177,9 +172,10 @@ bot.on("message", async message => {
           })
         }
 	
-	 if (message.content.startsWith("$kick")) {
 
-    if (!message.member.roles.find("name", "Admin"))
+    if (message.content.startsWith("m!kick")) {
+
+    if (!message.member.roles.find("name", "Staff"))
         return;
     // Easy way to get member object though mentions.
     var member = message.mentions.members.first();
@@ -194,26 +190,9 @@ bot.on("message", async message => {
 }
 });
 
-    if (message.content.startsWith("$kick")) {
+    if (message.content.startsWith("m!ban")) {
 
-    if (!message.member.roles.find("name", "Admin"))
-        return;
-    // Easy way to get member object though mentions.
-    var member = message.mentions.members.first();
-    // Kick
-    member.kick().then((member) => {
-        // Successmessage
-        message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-    }).catch(() => {
-        // Failmessage
-        message.channel.send("Access Denied");
-    });
-}
-});
-
-    if (message.content.startsWith("$ban")) {
-
-        if (!message.member.roles.find("name", "Admin"))
+        if (!message.member.roles.find("name", "Staff"))
             return;
 
         // Easy way to get member object though mentions.
