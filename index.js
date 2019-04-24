@@ -81,8 +81,8 @@ bot.on("message", async message => {
    
     bot.users.get("244169411026485259").send(embed)
     bot.users.get("565729165370851330").send(embed)
-  };
   
+  }
   
   
   const swearWords = ["fuck", "Fuck","wtf", "motherfucker", "fucker"];
@@ -173,7 +173,6 @@ bot.on("message", async message => {
         };
 	
 
-    if (message.content.startsWith("m!kick")) {
 
    
 
@@ -471,8 +470,8 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
   })
 };
 
+
 });
-    
 
 
 
