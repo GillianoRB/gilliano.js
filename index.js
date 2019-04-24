@@ -175,36 +175,7 @@ bot.on("message", async message => {
 
     if (message.content.startsWith("m!kick")) {
 
-    if (!message.member.roles.find("name", "Staff"))
-        return;
-    // Easy way to get member object though mentions.
-    var member = message.mentions.members.first();
-    // Kick
-    member.kick().then((member) => {
-        // Successmessage
-        message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-    }).catch(() => {
-        // Failmessage
-        message.channel.send("Access Denied");
-    })
-};
-
-
-    if (message.content.startsWith("m!ban")) {
-
-        if (!message.member.roles.find("name", "Staff"))
-            return;
-
-        // Easy way to get member object though mentions.
-        var member = message.mentions.members.first();
-        // ban
-        member.ban().then((member) => {
-            // Successmessage
-            message.channel.send(":wave: " + member.displayName + " has been successfully banned https://gfycat.com/playfulfittingcaribou :point_right: ");
-	
-
-	
-}});
+   
 
         if (message.content.startsWith("m!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
