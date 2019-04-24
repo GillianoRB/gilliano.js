@@ -42,11 +42,11 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-  member.guild.channels.get('channelID').send('**' + member.user.username + '**, has joined the server!'); 
+  member.guild.channels.get('524038952647131146').send('**' + member.user.username + '**, has joined the server!'); 
 });
 
 bot.on('guildMemberRemove', member => {
-  member.guild.channels.get('channelID').send('**' + member.user.username + '**, has left the server');
+  member.guild.channels.get('524038952647131146').send('**' + member.user.username + '**, has left the server');
   //
 });
 
