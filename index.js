@@ -204,7 +204,7 @@ bot.on("message", async message => {
 	
 
 	
-})
+}})
 
         if (message.content.startsWith("m!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
@@ -501,7 +501,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 }
 
 
-
+    
 
 
 
