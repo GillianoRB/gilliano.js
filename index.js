@@ -43,12 +43,12 @@ bot.on("ready", () => {
 
 bot.on('guildMemberAdd', member => {
     member.guild.channels.get("name","welcome-leave")
-    member.guild.send('**' + member.user.username + '**, has joined the server! there are now ' + member.guild.memberCount + ' now'); 
+    guildMemberAdd.guild.channels.send('**' + member.user.username + '**, has joined the server! there are now ' + member.guild.memberCount + ' now'); 
 });
 
 bot.on('guildMemberRemove', member => {
     member.guild.channels.get("name","welcome-leave")
-    member.guild.send('**' + member.user.username + '**, has left the server! there are now ' + member.guild.memberCount + ' now');
+    guildMemberRemove.guild.channels.send('**' + member.user.username + '**, has left the server! there are now ' + member.guild.memberCount + ' now');
 });
 
 
