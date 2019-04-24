@@ -124,7 +124,7 @@ bot.on("message", async message => {
   .catch(collected => console.log(`After a minute, only ${collected.size} out of 4 voted.`));
   }
 
-  if (message.content.startsWith("!math1")) {
+  if (message.content.startsWith("m!math1")) {
     message.channel.send("10+10=?, 4 options: 20, 30, 0, 4");
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
     console.log(collector)
@@ -143,7 +143,7 @@ bot.on("message", async message => {
 
 
 
-    if (message.content.startsWith("!math3")) {
+    if (message.content.startsWith("m!math3")) {
       message.channel.send("100-10=?, 4 options: 90, 235, 0, 14");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
@@ -160,7 +160,7 @@ bot.on("message", async message => {
         })
       }
 
-      if (message.content.startsWith("!math4")) {
+      if (message.content.startsWith("m!math4")) {
         message.channel.send("1284uwqsdjahwr8u4214-4218487sa2=?, 4 options: -40, 210, 1, 0");
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         console.log(collector)
@@ -176,8 +176,58 @@ bot.on("message", async message => {
             }
           })
         }
+	
+	 if (message.content.startsWith("$kick")) {
 
-        if (message.content.startsWith("!math5")) {
+    if (!message.member.roles.find("name", "Admin"))
+        return;
+    // Easy way to get member object though mentions.
+    var member = message.mentions.members.first();
+    // Kick
+    member.kick().then((member) => {
+        // Successmessage
+        message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+    }).catch(() => {
+        // Failmessage
+        message.channel.send("Access Denied");
+    });
+}
+});
+
+    if (message.content.startsWith("$kick")) {
+
+    if (!message.member.roles.find("name", "Admin"))
+        return;
+    // Easy way to get member object though mentions.
+    var member = message.mentions.members.first();
+    // Kick
+    member.kick().then((member) => {
+        // Successmessage
+        message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+    }).catch(() => {
+        // Failmessage
+        message.channel.send("Access Denied");
+    });
+}
+});
+
+    if (message.content.startsWith("$ban")) {
+
+        if (!message.member.roles.find("name", "Admin"))
+            return;
+
+        // Easy way to get member object though mentions.
+        var member = message.mentions.members.first();
+        // ban
+        member.ban().then((member) => {
+            // Successmessage
+            message.channel.send(":wave: " + member.displayName + " has been successfully banned https://gfycat.com/playfulfittingcaribou :point_right: ");
+	
+
+	
+});
+
+        if (message.content.startsWith("m!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
           const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
           console.log(collector)
@@ -194,7 +244,7 @@ bot.on("message", async message => {
             })
           }
 
-          if (message.content.startsWith("!math6")) {
+          if (message.content.startsWith("m!math6")) {
             message.channel.send("X-3=?, 4 options: 7, 10, 50, 42");
             const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
             console.log(collector)
@@ -211,7 +261,7 @@ bot.on("message", async message => {
               })
             }
 
-            if (message.content.startsWith("!math7")) {
+            if (message.content.startsWith("m!math7")) {
               message.channel.send("VII-7=?, 4 options: 124, 30512, 0, 42");
               const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
               console.log(collector)
@@ -228,7 +278,7 @@ bot.on("message", async message => {
                 })
               }
 
-              if (message.content.startsWith("!math8")) {
+              if (message.content.startsWith("m!math8")) {
                 message.channel.send("90-10+10-10+50-32=?, 4 options: 130, 230, 5, 412");
                 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                 console.log(collector)
@@ -245,7 +295,7 @@ bot.on("message", async message => {
                   })
                 }
 
-                if (message.content.startsWith("!math9")) {
+                if (message.content.startsWith("m!math9")) {
                   message.channel.send("X-100=?, 4 options: -90, -30, -0, 124");
                   const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
                   console.log(collector)
@@ -267,7 +317,7 @@ bot.on("message", async message => {
 
               
 
-    if (message.content.startsWith("!math2")) {
+    if (message.content.startsWith("m!math2")) {
       message.channel.send("1294÷125=?, 4 options: 10.352, 301, 12.354, 205");
       const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
       console.log(collector)
@@ -284,23 +334,23 @@ bot.on("message", async message => {
         })
       }
 
-      if (message.content.startsWith("!help-hypixel")) {
+      if (message.content.startsWith("m!help-hypixel")) {
         message.channel.send("Type which command you want to know: hypixelinfo, hypixelxp, hpquests, hpbwachievements, hpguildtop10, hpachievements");
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         console.log(collector)
         collector.on('collect', message => {
             if (message.content == "hypixelinfo") {
-                message.channel.send("The command is : !hypixelinfo");
+                message.channel.send("The command is : m!hypixelinfo");
             } else if (message.content == "hypixelxp") {
-                message.channel.send("the command is : !hypixelxp");
+                message.channel.send("the command is : m!hypixelxp");
             } else if (message.content == "hpquests") {
-                message.channel.send("command is : !hpquests");
+                message.channel.send("command is : m!hpquests");
             } else if (message.content == "hpbwachievements") {
-                message.channel.send("command is : !hpbwachievements")
+                message.channel.send("command is : m!hpbwachievements")
             } else if (message.content == "hpguildtop10") {
-                message.channel.send("command is : !hpguildtop10")
+                message.channel.send("command is : m!hpguildtop10")
             } else if (message.content == "hpachievements") {
-                message.channel.send("command is : !hpachievements")
+                message.channel.send("command is : m!hpachievements")
         }
     })
 }
@@ -384,13 +434,10 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help Mod")
     .setColor("#f48c42")
-    .addField("!ban (user) (reason)", "banning")
-    .addField("!kick (user) (reason)", "kicking")
-    .addField("!report (user) (reason)", "reporting")
-    .addField("!Lockdown (time: s, m, h)")
-    .addField("!poll (question)")
-    .addField("!mute (user)")
-    .addField("!removerole and ?addrole", "adding roles and removing tag the person");
+    .addField("m!report (user) (reason)", "reporting")
+    .addField("m!Lockdown (time: s, m, h)")
+    .addField("m!poll (question)")
+    .addField("m!mute (user)");
 
     message.channel.send(helpmodEmbed);
   }
@@ -399,20 +446,20 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help fun")
     .setColor("#f48c42")
-    .addField("!avatar (user)", "avatar of user")
-    .addField("!rps", "rock paper scissor")
-    .addField("!roast (user)")
-    .addField("!slap (user)", "clap")
-    .addField("!kiss (user)", "kisses user")
-    .addField("!hug (user)", "hugs user")
-    .addField("!coinflip", "flips coin")
-    .addField("!google (something)", "searches at google")
-    .addField("!ratewaifu (user)", "rates user ")
-    .addField("!info (user)", "gives user info")
-    .addField("!dadjoke")
-    .addField("!8ball (question)")
-    .addField("!bingo")
-    .addField("!serverinfo (user)", "gives guild info");
+    .addField("m!avatar (user)", "avatar of user")
+    .addField("m!rps", "rock paper scissor")
+    .addField("m!roast (user)")
+    .addField("m!slap (user)", "clap")
+    .addField("m!kiss (user)", "kisses user")
+    .addField("m!hug (user)", "hugs user")
+    .addField("m!coinflip", "flips coin")
+    .addField("m!google (something)", "searches at google")
+    .addField("m!ratewaifu (user)", "rates user ")
+    .addField("m!info (user)", "gives user info")
+    .addField("m!dadjoke")
+    .addField("m!8ball (question)")
+    .addField("m!bingo")
+    .addField("m!serverinfo (user)", "gives guild info");
 
     message.channel.send(helpmodEmbed);
   }
@@ -436,15 +483,15 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpmodEmbed = new Discord.RichEmbed()
     .setDescription("Help math")
     .setColor("#f48c42")
-    .addField("!math1", "math 1 = easy")
-    .addField("!math2", "math 2 = medium")
-    .addField("!math3", "math 3 = hard")
-    .addField("!math4", "math 4 = very hard")
-    .addField("!math5", "math 5 = most hard")
-    .addField("!math6", "math 6 = good luck about this 1")
-    .addField("!math7", "math 7 = well gg ")
-    .addField("!math8", "math 8 = ULTRA HARD")
-    .addField("!math9", "math 9 = medium hard");
+    .addField("m!math1", "math 1 = easy")
+    .addField("m!math2", "math 2 = medium")
+    .addField("m!math3", "math 3 = hard")
+    .addField("m!math4", "math 4 = very hard")
+    .addField("m!math5", "math 5 = most hard")
+    .addField("m!math6", "math 6 = good luck about this 1")
+    .addField("m!math7", "math 7 = well gg ")
+    .addField("m!math8", "math 8 = ULTRA HARD")
+    .addField("m!math9", "math 9 = medium hard");
 
     message.channel.send(helpmodEmbed);
   }
@@ -453,65 +500,11 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     let helpEmbed = new Discord.RichEmbed()
     .setDescription("Help")
     .setColor("#f48c42")
-    .addField("!help-mod", "only for mod")
-    .addField("!help-fun", "for fun")
-    .addField("!help-math", "for maths");
+    .addField("m!help-mod", "only for mod")
+    .addField("m!help-fun", "for fun")
+    .addField("m!help-math", "for maths");
 
     message.channel.send(helpEmbed);
-  }
-
-  if(cmd === `${prefix}kick`){
-
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Can't Find User");
-    let kReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No Can Do Pal!");
-    if(kUser.hasPermission("ADMINISTRATOR")) return message.channel.send("That Person Cant Be Kicked!");
-
-    let kickEmbed = new Discord.RichEmbed()
-    .setDescription("~Kick~")
-    .setColor("#f48c42")
-    .addField("Kick User", `${kUser} with ID ${kUser.id}`)
-    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Kicked In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", kReason);
-
-    let kickChannel = message.guild.channels.find(`name`, "logs");
-    if(!kickChannel) return message.channel.send("Cant Find The Logs channel");
-
-    message.guild.member(kUser).kick(kReason);
-    kickChannel.send(kickEmbed);
-
-    return;
-  }
-
-  
-
-  if(cmd === `${prefix}ban`){
-
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("Can't Find User");
-    let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No Can Do Pal!");
-    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("That Person Cant Be Kicked!");
-
-    let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Ban~")
-    .setColor("#f48c42")
-    .addField("Ban User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
-
-    let banChannel = message.guild.channels.find(`name`, "logs");
-    if(!banChannel) return message.channel.send("Cant Find The Logs channel pls create a logs channel");
-
-    message.guild.member(bUser).ban(bReason);
-    banChannel.send(banEmbed);
-
-    return;
   }
 
 
