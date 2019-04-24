@@ -1,18 +1,9 @@
 const Discord = require("discord.js");
 const ms = require("ms");
-const botconfig = require("../botconfig.json");
-const red = botconfig.red;
-const green = botconfig.green;
-const orange = botconfig.orange;
-
 module.exports.run = async (bot, message, args) => {
 
 
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No can do.");
-  if(args[0] == "help"){
-    message.reply("Usage: !tempmute <user> <1s/m/h/d>");
-    return;
-  }
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
   if(tomute.hasPermission("ADMINISTRATION")) return message.reply("Can't mute them!");
@@ -52,22 +43,21 @@ module.exports.run = async (bot, message, args) => {
 
   let muteembed = new Discord.RichEmbed()
   .setDescription(`Mute executed by ${message.author}`)
-  .setColor(orange)
+  .setColor("#0000000")
   .addField("Muted User", tomute)
   .addField("Muted in", message.channel)
   .addField("Time", message.createdAt)
   .addField("Length", mutetime)
   .addField("Reason", reason);
 
-  let incidentschannel = message.guild.channels.find(`name`, "logs");
-  if(!incidentschannel) return message.reply("Please create a logss channel first!");
-  incidentschannel.send(muteembed);
+  let channel = message.guild.channels.find(c => c.name === "logs");
+  if(!channel) return message.reply("Please create a logs channel first!");
+  channel.send(muteembed);
 
   await(tomute.addRole(muterole.id));
 
   setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
   }, ms(mutetime));
 
 
