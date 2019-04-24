@@ -186,9 +186,9 @@ bot.on("message", async message => {
     }).catch(() => {
         // Failmessage
         message.channel.send("Access Denied");
-    });
-}
-});
+    })
+};
+
 
     if (message.content.startsWith("m!ban")) {
 
@@ -500,7 +500,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
   })
 };
 
-
+});
     
 
 
