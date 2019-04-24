@@ -188,7 +188,7 @@ bot.on("message", async message => {
         message.channel.send("Access Denied");
     });
 }
-});
+})
 
     if (message.content.startsWith("m!ban")) {
 
@@ -204,7 +204,7 @@ bot.on("message", async message => {
 	
 
 	
-});
+})
 
         if (message.content.startsWith("m!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
@@ -364,7 +364,7 @@ let Day = today.toString().split(" ")[0].concat("day");
 let Month = today.toString().split(" ")[1]
 let Year = today.toString().split(" ")[3]
 message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${today.toString().split(" ")[4]}\``)
-  }
+  };
   
 
   
@@ -453,7 +453,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 
     dUser.send(`${dMessage}`)
 
-    message.author.send(`${message.author} You have sent your message to ${dUser}`)
+    message.author.send(`${message.author} You have sent your message to ${dUser}`);
 
  }
 
