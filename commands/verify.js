@@ -3,6 +3,7 @@ exports.run = (client, message) => {
     message.member.addRole(role);
     message.author.send('Hello thank you for verifying! ');
     }
+    message.delete{}
 
 
 module.exports.help = {
