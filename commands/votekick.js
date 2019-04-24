@@ -1,64 +1,33 @@
-const Discord  = module.require('discord.js');
-
-const agree    = "✅";
-const disagree = "❎";
+const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  if (message.mentions.users.size === 0){
-    return message.reply(":x: " + "| Please Mention A User To Kick Next Time");
-  }
+    if(!message.member.hasPermission("ADMINISTRATION")) return message.channel.send("No can do pal!");
+    if(args[0] == "help"){
+      message.reply("Usage: !kick <user> <reason>");
+      return;
+    }
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
-  let kickmember = message.guild.member(message.mentions.users.first());
-  if(!kickmember){
-    message.reply(":x: " + "| That User Does Not Seem Valid!");
-  }
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
 
-  if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")){
-    return message.reply(":x: " + "| i need the \"KICK_MEMBERS\" permission!").catch(console.error);
-  }
+    let kickChannel = message.guild.channels.find(`name`, "logs");
+    if(!kickChannel) return message.channel.send("Can't find #logs channel.");
 
-  let msg = await message.channel.send("Vote now! (10 Seconds)");
-  await msg.react(agree);
-  await msg.react(disagree);
-
-  const reactions = await msg.awaitReactions(reaction => reaction.emoji.name === agree || reaction.emoji.name === disagree, {time: 10000});
-  msg.delete();
-
-  var NO_Count = reactions.get(disagree).count;
-  var YES_Count = reactions.get(agree);
-
-  if(YES_Count == undefined){
-    var YES_Count = 1;
-  }else{
-    var YES_Count = reactions.get(agree).count;
-  }
-
-  var sumsum = new Discord.RichEmbed()
-  
-            .addField("Voting Finished:", "----------------------------------------\n" +
-                                          "Total votes (NO): " + `${NO_Count-1}\n` +
-                                          "Total votes (Yes): " + `${YES_Count-1}\n` +
-                                          "----------------------------------------\n" +
-                                          "NOTE: Votes needed to kick (3+)\n" +
-                                          "----------------------------------------", true)
-
-            .setColor("0x#FF0000")
-
-  await message.channel.send({embed: sumsum});
-
-  if(YES_Count >= 4 && YES_Count > NO_Count){
-
-    kickmember.kick().then(member => {
-      message.reply(`${member.user.username} was succesfully kicked`)
-    })
-  }else{
-
-    message.channel.send("\n" + "SAFE..... FOR NOW");
-  }
-
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
 }
 
 module.exports.help = {
-    name: "votekick"
+  name:"kick"
 }
