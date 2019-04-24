@@ -501,7 +501,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 }
 
 
-});
+
 
 
 
