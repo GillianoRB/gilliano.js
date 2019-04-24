@@ -81,7 +81,7 @@ bot.on("message", async message => {
    
     bot.users.get("244169411026485259").send(embed)
     bot.users.get("565729165370851330").send(embed)
-  }
+  };
   
   
   
@@ -89,7 +89,7 @@ bot.on("message", async message => {
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.delete();
         message.author.send('Hey! That word has been banned, please don\'t use it!');
-    }
+    };
   
     
     
@@ -100,7 +100,7 @@ bot.on("message", async message => {
   if (message.content.startsWith("m!awesome")) {
     message.author.send(`FUCK YOU FOR SAYING AWESOME YOU AWESOME BITCH LASAGNA, sub to pewdiepie`)
     message.delete();
-  }
+  };
 	
   
 
@@ -115,7 +115,7 @@ bot.on("message", async message => {
 
   if (message.content.startsWith("hi")) {
     message.channel.send(`Hey, ${message.author.username}`)
-  }
+  };
   
   
 
@@ -134,7 +134,7 @@ bot.on("message", async message => {
             message.channel.send("Well you tried...")
         }
       })
-    }
+    };
 
 
 
@@ -153,7 +153,7 @@ bot.on("message", async message => {
               message.channel.send("Well you tried...")
           }
         })
-      }
+      };
 
       if (message.content.startsWith("m!math4")) {
         message.channel.send("1284uwqsdjahwr8u4214-4218487sa2=?, 4 options: -40, 210, 1, 0");
@@ -170,7 +170,7 @@ bot.on("message", async message => {
                 message.channel.send("Well you tried...")
             }
           })
-        }
+        };
 	
 
     if (message.content.startsWith("m!kick")) {
@@ -188,7 +188,7 @@ bot.on("message", async message => {
         message.channel.send("Access Denied");
     });
 }
-})
+});
 
     if (message.content.startsWith("m!ban")) {
 
@@ -204,7 +204,7 @@ bot.on("message", async message => {
 	
 
 	
-}})
+}});
 
         if (message.content.startsWith("m!math5")) {
           message.channel.send("666-666=?, 4 options: 0, -0, 10, 244");
@@ -221,7 +221,7 @@ bot.on("message", async message => {
                   message.channel.send("Well you tried...")
               }
             })
-          }
+          };
 
           if (message.content.startsWith("m!math6")) {
             message.channel.send("X-3=?, 4 options: 7, 10, 50, 42");
@@ -238,7 +238,7 @@ bot.on("message", async message => {
                     message.channel.send("Well you tried...")
                 }
               })
-            }
+            };
 
             if (message.content.startsWith("m!math7")) {
               message.channel.send("VII-7=?, 4 options: 124, 30512, 0, 42");
@@ -255,7 +255,7 @@ bot.on("message", async message => {
                       message.channel.send("Well you tried...")
                   }
                 })
-              }
+              };
 
               if (message.content.startsWith("m!math8")) {
                 message.channel.send("90-10+10-10+50-32=?, 4 options: 130, 230, 5, 412");
@@ -272,7 +272,7 @@ bot.on("message", async message => {
                         message.channel.send("Well you tried...")
                     }
                   })
-                }
+                };
 
                 if (message.content.startsWith("m!math9")) {
                   message.channel.send("X-100=?, 4 options: -90, -30, -0, 124");
@@ -289,7 +289,7 @@ bot.on("message", async message => {
                           message.channel.send("Well you tried...")
                       }
                     })
-                  }
+                  };
 	   
 	         
 		
@@ -311,7 +311,7 @@ bot.on("message", async message => {
               message.channel.send("Well you tried...")
           }
         })
-      }
+      };
 
       if (message.content.startsWith("m!help-hypixel")) {
         message.channel.send("Type which command you want to know: hypixelinfo, hypixelxp, hpquests, hpbwachievements, hpguildtop10, hpachievements");
@@ -319,20 +319,20 @@ bot.on("message", async message => {
         console.log(collector)
         collector.on('collect', message => {
             if (message.content == "hypixelinfo") {
-                message.channel.send("The command is : m!hypixelinfo");
+                message.channel.send("The command is : m!hypixelinfo")
             } else if (message.content == "hypixelxp") {
-                message.channel.send("the command is : m!hypixelxp");
+                message.channel.send("the command is : m!hypixelxp")
             } else if (message.content == "hpquests") {
-                message.channel.send("command is : m!hpquests");
+                message.channel.send("command is : m!hpquests")
             } else if (message.content == "hpbwachievements") {
                 message.channel.send("command is : m!hpbwachievements")
             } else if (message.content == "hpguildtop10") {
                 message.channel.send("command is : m!hpguildtop10")
             } else if (message.content == "hpachievements") {
-                message.channel.send("command is : m!hpachievements")
+                message.channel.send("command is : m!hpachievements");
         }
     })
-}
+};
 
 
   
@@ -380,7 +380,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("Created On", bot.user.createdAt);
 
     return message.channel.send(botembed)
-  }
+  };
 
   if(cmd === `${prefix}report`){
 
@@ -407,7 +407,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 
     return;
 
-  }
+  };
 
   if(cmd === `${prefix}help-mod`){
     let helpmodEmbed = new Discord.RichEmbed()
@@ -419,7 +419,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("m!mute (user)");
 
     message.channel.send(helpmodEmbed);
-  }
+  };
 
   if(cmd === `${prefix}help-fun`){
     let helpmodEmbed = new Discord.RichEmbed()
@@ -441,7 +441,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("m!serverinfo (user)", "gives guild info");
 
     message.channel.send(helpmodEmbed);
-  }
+  };
 	
 
   if(cmd === `${prefix}dm`){
@@ -455,7 +455,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 
     message.author.send(`${message.author} You have sent your message to ${dUser}`);
 
- }
+ };
 
 
   if(cmd === `${prefix}help-math`){
@@ -473,7 +473,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("m!math9", "math 9 = medium hard");
 
     message.channel.send(helpmodEmbed);
-  }
+  };
 
   if(cmd === `${prefix}help`){
     let helpEmbed = new Discord.RichEmbed()
@@ -484,7 +484,7 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     .addField("m!help-math", "for maths");
 
     message.channel.send(helpEmbed);
-  }
+  };
 
 
 
@@ -497,8 +497,8 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
     if(!args[0]) return message.channel.send("oof");
     message.channel.bulkDelete(args[0]).then(() => {
     message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
-  });
-}
+  })
+};
 
 
     
