@@ -4,7 +4,7 @@ exports.run = (client, message, args, guild) => { //dingen definen
   //Onderwerp van de ticket
 let onderwerp = args.join(" ");
 
-//Username van de persoon
+//Username van de persoon yah
     var userName = message.author.username;
 
     //Icon  van de bot
