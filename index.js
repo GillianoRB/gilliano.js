@@ -457,6 +457,8 @@ message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${
 
 });
 
-
+bot.on('error', err => {
+    console.log(err);
+});
 
 bot.login(process.env.TOKEN);
