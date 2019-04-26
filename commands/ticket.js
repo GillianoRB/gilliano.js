@@ -73,7 +73,7 @@ message.guild.createChannel("🎫ticket-" + userName, "text").then(c => {//Wat p
 
     c.setTopic(`Ticket creator ${message.author}`) //De beschrijving van de channel
 
-    const categoryId = "1111111111111111"; //Category ID plaats het binnen de "11111"
+    const categoryId = "571163285001338920"; //Category ID plaats het binnen de "11111"
     c.setParent(categoryId) // Zet kanaal in category.
     
     geluktEmbed = new discord.RichEmbed()
