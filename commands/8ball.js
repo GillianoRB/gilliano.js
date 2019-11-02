@@ -9,7 +9,7 @@ if(!args[0]) {
   message.channel.send({embed: errEmbed})
   return;
 }
-var sayings = ["It is certain",
+var sayings = ["It is certained",
 										"It is decidedly so",
 										"Without a doubt",
 										"Yes, definitely",
